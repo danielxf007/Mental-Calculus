@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player_score_ui.gd" type="Script" id=1]
+[ext_resource path="res://font/GoblinOne-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 2 )
+
+[node name="PlayerScoreUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scores" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 8.0
+margin_right = 585.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 1 )
+text = "Puntajes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 192.0
+margin_right = 568.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 384.0
+margin_right = 576.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 576.0
+margin_right = 576.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_top = 640.0
+margin_right = 67.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 2 )
+text = "Atras"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Back" to="." method="_on_Back_button_down"]

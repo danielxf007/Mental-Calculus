@@ -1,0 +1,45 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=2]
+
+[ext_resource path="res://sprites/crates/crate_04.png" type="Texture" id=1]
+[ext_resource path="res://sprites/crates/crate_41.png" type="Texture" id=2]
+[ext_resource path="res://sprites/crates/crate_33.png" type="Texture" id=3]
+[ext_resource path="res://sprites/crates/crate_40.png" type="Texture" id=4]
+[ext_resource path="res://sprites/crates/crate_03.png" type="Texture" id=5]
+[ext_resource path="res://sprites/crates/crate_37.png" type="Texture" id=6]
+[ext_resource path="res://sprites/crates/crate_39.png" type="Texture" id=7]
+[ext_resource path="res://sprites/crates/crate_38.png" type="Texture" id=8]
+[ext_resource path="res://sprites/crates/crate_34.png" type="Texture" id=9]
+[ext_resource path="res://sprites/crates/crate_32.png" type="Texture" id=10]
+[ext_resource path="res://sprites/crates/crate_35.png" type="Texture" id=11]
+[ext_resource path="res://sprites/crates/crate_36.png" type="Texture" id=12]
+[ext_resource path="res://sprites/crates/crate_06.png" type="Texture" id=13]
+[ext_resource path="res://sprites/crates/crate_05.png" type="Texture" id=14]
+[ext_resource path="res://sprites/crates/crate_02.png" type="Texture" id=15]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "box_3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "box_0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "box_1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 2 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "box_4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "box_2",
+"speed": 5.0
+} ]

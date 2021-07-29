@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Forest.mp3-724fa081ff544a599bc939852935b2dc.mp3str"
+
+[deps]
+
+source_file="res://sounds/The Forest.mp3"
+dest_files=[ "res://.import/The Forest.mp3-724fa081ff544a599bc939852935b2dc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

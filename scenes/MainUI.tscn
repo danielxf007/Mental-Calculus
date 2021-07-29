@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://font/GoblinOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/main_ui.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="MainUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+modulate = Color( 0, 0.0431373, 0.4, 1 )
+margin_left = 136.0
+margin_top = 120.0
+margin_right = 560.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 1 )
+text = "CÁLCULO MENTAL"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 224.0
+margin_right = 464.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 2 )
+text = "Jugar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutButton" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 352.0
+margin_right = 464.0
+margin_bottom = 416.0
+custom_fonts/font = SubResource( 2 )
+text = "Acerca"
+
+[node name="ScoresButton" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 480.0
+margin_right = 466.0
+margin_bottom = 544.0
+custom_fonts/font = SubResource( 2 )
+text = "Puntajes"
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 608.0
+margin_right = 466.0
+margin_bottom = 672.0
+custom_fonts/font = SubResource( 2 )
+text = "Salir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
+[connection signal="button_down" from="ExitButton" to="." method="_on_ExitButton_button_down"]

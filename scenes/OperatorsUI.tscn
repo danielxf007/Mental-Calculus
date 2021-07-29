@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://font/GoblinOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/operators_ui.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="OperatorsUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 608.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 2 )
+text = "Escoger Operaciones"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackMain" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 624.0
+margin_right = 176.0
+margin_bottom = 688.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Atrás"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="."]
+margin_left = 96.0
+margin_top = 192.0
+margin_right = 224.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sub" type="Button" parent="."]
+margin_left = 288.0
+margin_top = 192.0
+margin_right = 416.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "-"
+
+[node name="Mult" type="Button" parent="."]
+margin_left = 480.0
+margin_top = 192.0
+margin_right = 608.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "*"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quot" type="Button" parent="."]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 288.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 1 )
+text = "Quot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mod" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 320.0
+margin_right = 544.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 1 )
+text = "Mod"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 224.0
+margin_top = 448.0
+margin_right = 477.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 1 )
+text = "Comenzar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="BackMain" to="." method="_on_BackMain_button_down"]
+[connection signal="button_down" from="Add" to="." method="_on_Add_button_down"]
+[connection signal="button_down" from="Sub" to="." method="_on_Sub_button_down"]
+[connection signal="button_down" from="Mult" to="." method="_on_Mult_button_down"]
+[connection signal="button_down" from="Quot" to="." method="_on_Quot_button_down"]
+[connection signal="button_down" from="Mod" to="." method="_on_Mod_button_down"]
+[connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]

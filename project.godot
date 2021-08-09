@@ -93,6 +93,12 @@ gdscript/warnings/integer_division=false
 window/size/width=704
 window/size/height=704
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+window=false
 
 [physics]
 

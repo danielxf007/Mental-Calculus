@@ -31,7 +31,7 @@ func _increase_max_n_ok_ans() -> void:
 	self._MAX_N_OK_ANS += 1
 
 func _calculate_speed(num: int) -> float:
-	return num*50.0 + 100.0
+	return num*50.0 + 150.0
 
 func start() -> void:
 	self.set_lvl(1)

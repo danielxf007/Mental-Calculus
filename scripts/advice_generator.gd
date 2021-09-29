@@ -58,8 +58,7 @@ func _get_advice(advice: Dictionary) -> void:
 # warning-ignore:return_value_discarded
 	self._advice_file.save(self._ADVICE_FILE_PATH)
 
-func _on_AdviceButton_got_input(input: int) -> void:
-	if input == self._NEEDED_ADVICE:
+func _on_AdviceButton_button_down() -> void:
 		var advice: Dictionary = {"title": "", "desciption_key": "",
 		"image_path": ""}
 		self._get_advice(advice)

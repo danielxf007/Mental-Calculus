@@ -1,40 +1,33 @@
 extends Node
-signal state_changed(last_state, new_state)
+signal game_was_uninitialized()
+signal game_was_started()
+signal game_has_ended()
+signal game_was_restarted()
+signal advice_was_requested()
+signal advice_was_given()
+
 class_name GameController
-enum {STOPPED, PLAYING, ADVISING, GAME_OVER}
-enum {PLAYED, NEEDED_ADVICE, ADVICE_ENDED, ZERO_LIVES, PLAY_AGAIN, BACK}
-var _curr_state: int
 
-func _ready():
-	self._curr_state = self.STOPPED
+var start_time:Dictionary
+var end_time:Dictionary
 
-func _set_state(new_state: int) -> void:
-	if new_state != self._curr_state:
-		self.emit_signal("state_changed", self._curr_state, new_state)
-		self._curr_state = new_state
+func _on_PlayAgain_button_down() -> void:
+	self.emit_signal("game_was_restarted")
 
+func _on_BackToOperators_button_down() -> void:
+	self.emit_signal("game_was_uninitialized")
 
-func _next_state(input: int, curr_state: int) -> int:
-	var state: int
-	if curr_state == self.STOPPED and input == self.PLAYED:
-		state = self.PLAYING
-	elif curr_state == self.PLAYING:
-		if input == self.NEEDED_ADVICE:
-			state = self.ADVISING
-		elif input == self.ZERO_LIVES:
-			state = self.GAME_OVER
-	elif curr_state == self.ADVISING and input == self.ADVICE_ENDED:
-		state = self.PLAYING
-	elif curr_state == self.GAME_OVER:
-		if input == self.PLAY_AGAIN:
-			state = self.PLAYING
-		elif input == self.BACK:
-			state = self.STOPPED
-	return state
+func _on_AdviceButton_button_down() -> void:
+	self.emit_signal("advice_was_requested")
 
-func get_input(input: int) -> void:
-	self._set_state(self._next_state(input, self._curr_state))
+func _on_BackToGame_button_down() -> void:
+	self.emit_signal("advice_was_given")
 
-func _on_AudioStreamPlayer_finished() -> void:
-	if self._lives:
-		$AudioStreamPlayer.play()
+func _on_GameDataHandler_lives_changed(lives: int) -> void:
+	if not lives:
+		self.end_time=OS.get_time()
+		self.emit_signal("game_has_ended")
+
+func _on_OperatorsUI_start_pressed() -> void:
+	self.start_time=OS.get_time()
+	self.emit_signal("game_was_started")

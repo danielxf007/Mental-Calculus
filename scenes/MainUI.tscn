@@ -20,7 +20,6 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-modulate = Color( 0, 0.0431373, 0.4, 1 )
 margin_left = 136.0
 margin_top = 120.0
 margin_right = 560.0

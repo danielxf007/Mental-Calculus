@@ -3,7 +3,7 @@ signal collided(box)
 signal got_out_screen()
 class_name Box
 const _BOXES_ANIM: Array = ["box_0", "box_1", "box_2"]
-const _BOUNDS: Vector2 = Vector2(0, 768)
+const _BOUNDS: Vector2 = Vector2(0, 896)
 var _init_pos: Vector2
 var _speed: float
 var _move_dir: Vector2

@@ -1,34 +1,38 @@
 extends Control
-const _SCORES_FILE_PATH: String = "res://files/player_score.cfg"
-const _SECTION: String = "scores"
+const _FILE_PATH: String = "res://files/game_info.cfg"
+const _SECTION: String = "info"
+const TIME_FORMAT: String = "%d: %d: %d"
 var _labels: Array
-var _scores_file: ConfigFile
+var _config_file: ConfigFile
+var game_info_table: GridContainer
 
 func _ready():
-	self._scores_file = ConfigFile.new()
-	self._labels = [$Label, $Label2, $Label3]
-# warning-ignore:return_value_discarded
-	self._scores_file.load(self._SCORES_FILE_PATH)
-
-func _on_Back_button_down() -> void:
-	self.hide()
-
+	self._config_file = ConfigFile.new()
+	self.game_info_table = $MarginContainer/GameInfoTable
 
 func _on_ScoresButton_button_down() -> void:
-	var scores: Array = self._scores_file.get_value(self._SECTION, "max_scores")
-	for i in range(scores.size()):
-		self._labels[i].text = String(scores[i]);
+# warning-ignore:return_value_discarded
+	self._config_file.load(self._FILE_PATH)
+	self.show_game_info()
 	self.show()
 
+func show_game_info() -> void:
+	var game_info: Array = self._config_file.get_value(self._SECTION, "game_info")
+	for i in range(game_info.size()):
+		for column in self.game_info_table.get_children():
+			var element: Label = column.get_children()[i+1]
+			match(column.name):
+				"Scores":
+					element.text=String(game_info[i]["score"])
+				"Times":
+					element.text=self.TIME_FORMAT%[
+					game_info[i]["time_played"]["hour"],
+					game_info[i]["time_played"]["minute"],
+					game_info[i]["time_played"]["second"]]
+				"Correct":
+					element.text=String(game_info[i]["ok_ans"])
+				"Errors":
+					element.text=String(game_info[i]["mistakes"])
 
-func _on_GameDataHandler_got_end_score(score: int) -> void:
-	var scores: Array = self._scores_file.get_value(self._SECTION, "max_scores")
-	for i in range(scores.size()):
-		if scores[i]<score:
-			for j in range(i+1, scores.size()):
-				scores[j] = scores[j-1]
-			scores[i] = score
-			self._scores_file.set_value(self._SECTION, "max_scores", scores)
-# warning-ignore:return_value_discarded
-			self._scores_file.save(self._SCORES_FILE_PATH)
-			break
+func _on_ScoreUIBack_button_down() -> void:
+	self.hide()

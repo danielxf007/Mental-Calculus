@@ -110,7 +110,6 @@ func _generate_problem(n_opts: int, op_code: int, n_digits_a: int, n_digits_b: i
 	problem["opts"].shuffle()
 	return problem
 
-
 func _get_n_dig_operator_a(op_code: int) -> int:
 	return self._difficult_lvl if op_code!=2 else (self._difficult_lvl-1)/2 +1
 
@@ -133,7 +132,6 @@ func _on_Problem_gone_inactive() -> void:
 		var problem: Dictionary = self._generate_problem(self._N_OPTS, op_code,
 		n_dig_a, n_dig_b)
 		self.emit_signal("problem_generated", problem)
-
 
 func _on_GameDataHandler_level_changed(lvl: int) -> void:
 	self._difficult_lvl = lvl

@@ -1,7 +1,6 @@
 extends Control
 signal got_operators_arr(arr)
 signal start_pressed()
-signal got_input(input)
 class_name OperatorsUI
 const _PLAYED: int = 0
 const _CHOOSE_COLOR: String = "#00ff59"
@@ -55,22 +54,13 @@ func _on_Mod_button_down() -> void:
 		$Mod.modulate = self._OG_COLOR
 
 func _gen_rdm_operators() -> void:
-	var n: int = randi()%self._operators.size()+1
+	var n: int = randi()%self._operator_buttons.size()+1
 	var op_code: int
 	for _i in range(n):
-		op_code = randi()%self._operators.size()
+		op_code = randi()%self._operator_buttons.size()
 		while op_code in self._operators:
 			op_code = randi()%self._operators.size()
 		self._operators.append(op_code)
-
-func _on_Start_button_down() -> void:
-	if not self._operators:
-		self._gen_rdm_operators()
-	self.emit_signal("got_operators_arr", self._operators)
-	yield(get_tree().create_timer(0.5), "timeout")
-	self.hide()
-	self.emit_signal("start_pressed")
-	self.emit_signal("got_input", self._PLAYED)
 
 func _on_Back_button_down() -> void:
 	for button in self._operator_buttons:
@@ -87,3 +77,24 @@ func _on_PlayButton_button_down() -> void:
 func _on_BackMain_button_down() -> void:
 	self.hide()
 	self._operators.clear()
+
+
+func _on_StartGame_button_down() -> void:
+	if not self._operators:
+		self._gen_rdm_operators()
+	self.emit_signal("got_operators_arr", self._operators)
+	yield(get_tree().create_timer(0.5), "timeout")
+	self.hide()
+	for button in self._operator_buttons:
+		button.modulate = self._OG_COLOR
+	self.emit_signal("start_pressed")
+
+
+func _on_OpUIBackMain_button_down() -> void:
+	self.hide()
+	self._operators.clear()
+
+
+func _on_GameController_game_was_uninitialized() -> void:
+	self._operators.clear()
+	self.show()

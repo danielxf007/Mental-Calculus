@@ -91,14 +91,23 @@ gdscript/warnings/integer_division=false
 [display]
 
 window/size/width=704
-window/size/height=704
+window/size/height=768
 window/size/resizable=false
+window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
-[global]
+[editor_plugins]
 
-window=false
+enabled=PoolStringArray( "res://addons/joystick_control/plugin.cfg" )
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[logging]
+
+file_logging/enable_file_logging=true
 
 [physics]
 
@@ -106,4 +115,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

@@ -21,3 +21,7 @@ func _on_AdviceButton_button_down() -> void:
 	self._problem_counter = 0
 	self._max_n_problems += 2
 	self.disabled = true
+
+
+func _on_GameController_game_was_restarted() -> void:
+	self._start()

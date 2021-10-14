@@ -127,6 +127,7 @@ visible = false
 [connection signal="problem_generated" from="ProblemGenerator" to="Problem" method="_on_ProblemGenerator_problem_generated"]
 [connection signal="problem_generated" from="ProblemGenerator" to="AdviceGenerator" method="_on_ProblemGenerator_problem_generated"]
 [connection signal="problem_generated" from="ProblemGenerator" to="GameUI" method="_on_ProblemGenerator_problem_generated"]
+[connection signal="problem_generated" from="ProblemGenerator" to="GameUI/MarginContainer/VBoxContainer/AdviceButton" method="_on_ProblemGenerator_problem_generated"]
 [connection signal="got_ready" from="GameDataHandler" to="Problem" method="_on_GameDataHandler_got_ready"]
 [connection signal="level_changed" from="GameDataHandler" to="ProblemGenerator" method="_on_GameDataHandler_level_changed"]
 [connection signal="lives_changed" from="GameDataHandler" to="." method="_on_GameDataHandler_lives_changed"]

@@ -135,3 +135,5 @@ func _on_Problem_gone_inactive() -> void:
 
 func _on_GameDataHandler_level_changed(lvl: int) -> void:
 	self._difficult_lvl = lvl
+
+

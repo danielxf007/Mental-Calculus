@@ -70,10 +70,6 @@ func _on_Player_hit_finished() -> void:
 func _on_GameDataHandler_speed_calculated(speed: int) -> void:
 	self.set_speed(speed)
 
-func _on_GameController_game_was_started() -> void:
-	self.emit_signal("gone_inactive")
-	self.start()
-
 func _on_GameController_advice_was_requested() -> void:
 	self._activate(false)
 
@@ -89,3 +85,8 @@ func _on_GameController_game_was_restarted() -> void:
 
 func _on_GameController_game_was_uninitialized() -> void:
 	self._activate(false)
+
+
+func _on_GameDataHandler_got_ready() -> void:
+	self.start()
+	self.emit_signal("gone_inactive")

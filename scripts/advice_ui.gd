@@ -2,7 +2,6 @@ extends Control
 class_name AdviceUI
 const _SECTION: String = "descriptions"
 const _DESCRIP_FILE_PATH: String = "res://files/descriptions.cfg"
-const _ADVICE_ENDED: int = 2
 var _description_file: ConfigFile
 
 func _ready():

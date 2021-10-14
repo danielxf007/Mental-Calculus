@@ -1,7 +1,6 @@
 extends Node
 signal got_advice(advice)
 class_name AdviceGenerator
-const _NEEDED_ADVICE: int = 1
 const _ADVICE_FILE_PATH: String = "res://files/advices.cfg"
 const _ADVICE_SECTIONS: Array = ["add", "sub", "mult", "quot", "mod"]
 var _advice_file: ConfigFile

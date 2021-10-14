@@ -3,6 +3,7 @@ signal level_changed(lvl)
 signal lives_changed(lives)
 signal score_changed(score)
 signal speed_calculated(speed)
+signal got_ready()
 class_name GameDataHandler
 const _MAX_LVL: int = 6
 const _SCORE_INCREMENT: int = 5
@@ -90,11 +91,13 @@ func _on_Problem_got_answered(grade: int) -> void:
 func _on_GameController_game_was_started() -> void:
 	self.start_time=OS.get_time()
 	self.start()
+	self.emit_signal("got_ready")
 
 
 func _on_GameController_game_was_restarted() -> void:
 	self.start_time=OS.get_time()
 	self.start()
+	self.emit_signal("got_ready")
 
 
 func _on_GameController_game_has_ended() -> void:
